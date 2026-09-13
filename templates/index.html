@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flask CRUD API</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Flask CRUD API</h1>
+
+        <!-- ================= USERS ================= -->
+
+        <section>
+
+            <h2>Users</h2>
+
+            <div class="form">
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Username">
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email">
+
+                <button onclick="addUser()">
+                    Add User
+                </button>
+
+            </div>
+
+            <h3>User List</h3>
+
+            <div id="userList"></div>
+
+        </section>
+
+
+        <!-- ================= PRODUCTS ================= -->
+
+        <section>
+
+            <h2>Products</h2>
+
+            <div class="form">
+
+                <input
+                    type="text"
+                    id="productName"
+                    placeholder="Product Name">
+
+                <input
+                    type="number"
+                    id="productPrice"
+                    placeholder="Price">
+
+                <button onclick="addProduct()">
+                    Add Product
+                </button>
+
+            </div>
+
+            <h3>Product List</h3>
+
+            <div id="productList"></div>
+
+        </section>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

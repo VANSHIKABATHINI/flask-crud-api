@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request, jsonify, make_response, render_template
 from flask_sqlalchemy import SQLAlchemy
 from os import environ
 
@@ -52,6 +52,15 @@ with app.app_context():
 
 
 # =========================
+# FRONTEND
+# =========================
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+
+# =========================
 # TEST ROUTE
 # =========================
 
@@ -67,7 +76,6 @@ def test():
 # USER CRUD
 # =========================
 
-# CREATE USER
 @app.route('/users', methods=['POST'])
 def create_user():
     try:
@@ -95,7 +103,6 @@ def create_user():
         )
 
 
-# GET ALL USERS
 @app.route('/users', methods=['GET'])
 def get_users():
     try:
@@ -113,7 +120,6 @@ def get_users():
         )
 
 
-# GET USER BY ID
 @app.route('/users/<int:id>', methods=['GET'])
 def get_user(id):
     try:
@@ -137,7 +143,6 @@ def get_user(id):
         )
 
 
-# UPDATE USER
 @app.route('/users/<int:id>', methods=['PUT'])
 def update_user(id):
     try:
@@ -170,7 +175,6 @@ def update_user(id):
         )
 
 
-# DELETE USER
 @app.route('/users/<int:id>', methods=['DELETE'])
 def delete_user(id):
     try:
@@ -203,7 +207,6 @@ def delete_user(id):
 # PRODUCT CRUD
 # =========================
 
-# CREATE PRODUCT
 @app.route('/products', methods=['POST'])
 def create_product():
     try:
@@ -231,7 +234,6 @@ def create_product():
         )
 
 
-# GET ALL PRODUCTS
 @app.route('/products', methods=['GET'])
 def get_products():
     try:
@@ -249,7 +251,6 @@ def get_products():
         )
 
 
-# GET PRODUCT BY ID
 @app.route('/products/<int:id>', methods=['GET'])
 def get_product(id):
     try:
@@ -273,7 +274,6 @@ def get_product(id):
         )
 
 
-# UPDATE PRODUCT
 @app.route('/products/<int:id>', methods=['PUT'])
 def update_product(id):
     try:
@@ -306,7 +306,6 @@ def update_product(id):
         )
 
 
-# DELETE PRODUCT
 @app.route('/products/<int:id>', methods=['DELETE'])
 def delete_product(id):
     try:
